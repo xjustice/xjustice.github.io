@@ -1,4 +1,4 @@
-# 🕹️ Godot 4 Tetris (Cyberpunk Edition)
+# 🕹️ Reverse Tetris (Cyberpunk Edition)
 
 A modern Tetris game built with Godot 4 and GDScript. It adheres to standard Tetris guidelines while adding vibrant cyberpunk visuals and smooth controls.
 
