@@ -1,9 +1,7 @@
 # Godot-specific ignores
 .godot/
 *.import
-# Only ignore credentials, but we keep the file for the CI if needed. 
-# Actually, for CI, it's better to have a template or keep it if no secrets are in it.
-# Commercial projects usually ignore it, but for simple ones, keeping the structure is okay.
+# export_presets.cfg
 
 # Mono-specific ignores
 .mono/
