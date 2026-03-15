@@ -28,6 +28,7 @@ jobs:
 
       - name: Copy Service Worker and AdSense files
         run: |
+          mkdir -p build
           cp coi-serviceworker.js build/
           cp ads.txt build/
 
