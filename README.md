@@ -2,6 +2,8 @@
 
 A modern Tetris game built with Godot 4 and GDScript. It adheres to standard Tetris guidelines while adding vibrant cyberpunk visuals and smooth controls.
 
+game link: https://xjustice.github.io/
+
 ## 🌟 Key Features
 
 - **Standard 7-Bag System**: Ensures fair piece distribution by generating all 7 tetrominoes in a shuffled pack.
