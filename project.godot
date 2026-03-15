@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Reverse Tetris"
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
@@ -32,4 +32,4 @@ window/stretch/mode="canvas_items"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/quality/driver_name="Forward Plus"
+renderer/quality/driver_name="gl_compatibility"

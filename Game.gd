@@ -53,6 +53,7 @@ var das_timer: float = 0.0
 var das_direction: Vector2i = Vector2i.ZERO
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	print("Tetris Game Started!")
 	randomize()
 	setup_procedural_tiles()
@@ -360,7 +361,7 @@ func apply_cascade() -> void:
 	# Check for new lines after cascade
 	if not check_lines_any_orientation():
 		is_shifting = false
-		spawn_piece()
+		call_deferred("spawn_piece")
 
 func is_within_bounds(pos: Vector2i) -> bool:
 	return pos.x >= 0 and pos.x < board_width and pos.y >= 0 and pos.y < board_height
@@ -392,7 +393,7 @@ func check_lines_any_orientation() -> bool:
 		
 		update_score(h_lines.size() + v_lines.size())
 		apply_shake()
-		apply_cascade() # Cascade again
+		call_deferred("apply_cascade") # Cascade again
 		return true
 	return false
 
@@ -415,8 +416,14 @@ func clear_line(y_index: int) -> void:
 		board_layer.set_cell(Vector2i(x, 0), -1)
 
 func game_over() -> void:
-	print("Game Over! Press 'R' to restart.")
-	get_tree().paused = true
+	print("Game Over!")
+	is_paused = true
+	if confirm_popup:
+		confirm_popup.visible = true
+		var title = confirm_popup.get_node_or_null("VBoxContainer/Title")
+		if title: title.text = "GAME OVER"
+		var restart_btn = confirm_popup.get_node_or_null("VBoxContainer/RestartBtn")
+		if restart_btn: restart_btn.grab_focus()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or (event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE):
@@ -464,10 +471,16 @@ func _input(event: InputEvent) -> void:
 		restart_game()
 
 func create_trail_ghost(pos: Vector2i) -> void:
+	# Performance optimization: Don't create too many nodes on web
+	if OS.get_name() == "Web" and randf() > 0.5: return 
+	
 	var trail = TileMapLayer.new()
 	trail.tile_set = active_piece_layer.tile_set
 	trail.position = game_container.position
 	add_child(trail)
+	
+	# Ensure trail is behind everything else in GameContainer
+	move_child(trail, 0)
 	
 	for cell in active_piece_cells:
 		trail.set_cell(pos + cell, 0, Vector2i(active_piece_type, 0))
