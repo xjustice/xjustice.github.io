@@ -188,10 +188,10 @@ func can_move(target_pos: Vector2i, cells: Array[Vector2i]) -> bool:
 	for cell in cells:
 		var grid_pos = target_pos + cell
 		
-		# 1. Boundary Check
+		# 1. Boundary Check (upport all gravity directions)
 		if grid_pos.x < 0 or grid_pos.x >= board_width:
 			return false
-		if grid_pos.y >= board_height:
+		if grid_pos.y < 0 or grid_pos.y >= board_height:
 			return false
 		
 		# 2. Collision with existing blocks on the TileMapLayer
@@ -271,7 +271,6 @@ func lock_piece() -> void:
 		board_layer.set_cell(active_piece_pos + cell, 0, Vector2i(active_piece_type, 0))
 	
 	active_piece_layer.clear()
-	active_piece_layer.clear()
 	if not check_lines():
 		spawn_piece()
 
@@ -318,8 +317,11 @@ func check_lines() -> bool:
 	
 	if lines_to_clear.size() > 0:
 		if clear_sound: clear_sound.play()
+		# Clear the full lines (but don't shift them manually)
 		for y in lines_to_clear:
-			clear_line(y)
+			for x in range(board_width):
+				board_layer.set_cell(Vector2i(x, y), -1)
+		
 		update_score(lines_to_clear.size())
 		apply_shake()
 		shift_gravity()
@@ -328,26 +330,29 @@ func check_lines() -> bool:
 
 func shift_gravity() -> void:
 	is_shifting = true
-	# To keep the rectangular shape consistent, we'll only shift between DOWN and UP (180 degrees)
-	# Rotating 90 degrees would turn the rectangle sideways.
+	# Toggle between DOWN and UP
 	var new_dir = Vector2i(0, -1) if gravity_dir == Vector2i(0, 1) else Vector2i(0, 1)
-	
-	# Calculate target angle
 	gravity_angle = 180.0 if new_dir == Vector2i(0, -1) else 0.0
-	
 	gravity_dir = new_dir
 	
 	var tween = create_tween()
 	tween.tween_property(game_container, "rotation_degrees", gravity_angle, 0.6).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.tween_callback(apply_cascade)
+	# Ensure apply_cascade is called deferredly for stability
+	tween.tween_callback(func(): call_deferred("apply_cascade"))
 
 func apply_cascade() -> void:
+	print("DEBUG: apply_cascade started. Gravity: ", gravity_dir)
+	var moved_count = 0
+	var max_iterations = board_height * 2 # Safety break for infinite loops
 	var moved = true
-	while moved:
+	
+	while moved and max_iterations > 0:
 		moved = false
-		# Iterate in order based on gravity to avoid blocking
-		for y in range(board_height-1, -1, -1) if gravity_dir.y >= 0 else range(board_height):
-			for x in range(board_width-1, -1, -1) if gravity_dir.x >= 0 else range(board_width):
+		max_iterations -= 1
+		# Iterate in gravity direction order
+		var y_range = range(board_height-1, -1, -1) if gravity_dir.y >= 0 else range(board_height)
+		for y in y_range:
+			for x in range(board_width):
 				var pos = Vector2i(x, y)
 				var source_id = board_layer.get_cell_source_id(pos)
 				if source_id != -1:
@@ -357,10 +362,14 @@ func apply_cascade() -> void:
 						board_layer.set_cell(pos, -1)
 						board_layer.set_cell(target, source_id, atlas)
 						moved = true
+						moved_count += 1
+	
+	print("DEBUG: apply_cascade finished. Total moves: ", moved_count)
 	
 	# Check for new lines after cascade
 	if not check_lines_any_orientation():
 		is_shifting = false
+		print("DEBUG: Shifting ended. Spawning piece.")
 		call_deferred("spawn_piece")
 
 func is_within_bounds(pos: Vector2i) -> bool:
@@ -393,6 +402,7 @@ func check_lines_any_orientation() -> bool:
 		
 		update_score(h_lines.size() + v_lines.size())
 		apply_shake()
+		print("DEBUG: Lines found after cascade. Re-cascading.")
 		call_deferred("apply_cascade") # Cascade again
 		return true
 	return false
@@ -405,15 +415,8 @@ func apply_shake() -> void:
 		tween.tween_property(camera, "offset", Vector2(-5, -5), 0.05)
 		tween.tween_property(camera, "offset", Vector2(0, 0), 0.05)
 
-func clear_line(y_index: int) -> void:
-	for y in range(y_index, 0, -1):
-		for x in range(board_width):
-			var source_id = board_layer.get_cell_source_id(Vector2i(x, y - 1))
-			var atlas_coords = board_layer.get_cell_atlas_coords(Vector2i(x, y - 1))
-			board_layer.set_cell(Vector2i(x, y), source_id, atlas_coords)
-	
-	for x in range(board_width):
-		board_layer.set_cell(Vector2i(x, 0), -1)
+# clear_line is no longer used, unified with cascade system
+
 
 func game_over() -> void:
 	print("Game Over!")
