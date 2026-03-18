@@ -1,49 +1,57 @@
-# 🕹️ Reverse Tetris (Cyberpunk Edition)
+# 🎨 xjustice | Portfolio Hub
 
-A modern Tetris game built with Godot 4 and GDScript. It adheres to standard Tetris guidelines while adding vibrant cyberpunk visuals and smooth controls.
+Welcome to the central command for all my creative and technical projects. This repository serves as the **root domain** for `https://xjustice.github.io/`, showcasing a curated collection of web games, data visualizations, and professional utility applications.
 
-game link: https://xjustice.github.io/
-
-## 🌟 Key Features
-
-- **Standard 7-Bag System**: Ensures fair piece distribution by generating all 7 tetrominoes in a shuffled pack.
-- **DAS (Delayed Auto Shift)**: Holding left/right keys triggers high-speed movement after a 0.5s delay for fluid control.
-- **Procedural Tile Generation**: High-quality neon block textures are generated at runtime via code, ensuring perfect resolution and colors.
-- **Ghost Piece**: Shows a semi-transparent preview of where the block will land.
-- **Dynamic Backgrounds**: Features a stunning space background with 10 random color tints that change during play.
-- **UI System**: Includes real-time score tracking, next piece preview, and a keyboard-navigable ESC menu.
-- **Impact Effects**: Screen shake, particle sparks, and motion trails for a high-impact feel.
-- **Heavy Bass Audio**: Deep, immersive sound effects for rotation and line clears.
-
-## ⌨️ Controls
-
-| Key | Action |
-| :--- | :--- |
-| **Arrow Left/Right** | Move Piece (Hold for continuous movement) |
-| **Arrow Up** | Rotate Piece |
-| **Arrow Down** | Soft Drop |
-| **Space** | Hard Drop (with trail effect) |
-| **Enter** | Pause / Resume Game |
-| **ESC** | Open Confirm Menu (Restart/Exit) |
-
-## 🛠️ Technical Specs
-
-- **Engine**: Godot 4.3+ (Forward+ renderer recommended)
-- **Language**: GDScript 2.0
-- **Core Nodes**: Utilizes `TileMapLayer` for efficient grid-based rendering.
-- **Resolution**: Optimized for 600x800.
-
-## 📁 File Structure
-
-- `Game.gd`: Core game logic (Movement, collision, line clear, UI control).
-- `TetroData.gd`: Tetromino data, matrix definitions, and the 7-Bag system.
-- `Main.tscn`: Main scene node structure and HUD configuration.
-- `TetroTileSet.tres`: TileSet configuration for grid rendering.
+## 🌐 Live Site
+Visit the hub live at: **[https://xjustice.github.io/](https://xjustice.github.io/)**
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Featured Projects
 
-1. Open `project.godot` in the Godot 4 editor.
-2. Ensure `Main.tscn` is set as the main scene.
-3. Press **F5** to start the game!
+### 🛠️ [Modern Tetris (Godot 4)](https://xjustice.github.io/tetris/)
+A high-fidelity recreation of the classic Tetris game, built using the Godot Engine 4.
+- **Tech Stack**: Godot 4, GDScript, WebAssembly (WASM).
+- **Case Study**: [Detailed technical analysis](https://xjustice.github.io/projects/tetris.html).
+
+### ⚡ [World Energy Map](https://xjustice.github.io/world-energy-map/)
+An interactive data visualization project tracking global energy consumption and production trends.
+- **Tech Stack**: HTML5, CSS3, JavaScript, Interactive Maps.
+- **Case Study**: [Detailed technical analysis](https://xjustice.github.io/projects/energy-map.html).
+
+### 📋 [ISO Checklist XP](https://xjustice.github.io/iso-checklist-xp/)
+Compliance management redefined with a nostalgic Windows XP user interface for ISO 17020 requirements.
+- **Tech Stack**: Retro UI Design, CSS3, IndexedDB Persistence.
+- **Case Study**: [Detailed technical analysis](https://xjustice.github.io/projects/iso-checklist.html).
+
+---
+
+## 🎨 Design Aesthetic: "Halftone Theme"
+The root site features a **Vintage Halftone Aesthetic**, characterized by:
+- **Halftone Dot Patterns**: Subtle 아날로그 gradients and textures.
+- **Ribbon-based Navigation**: A classic, tactile UI layout.
+- **Beige & Coral Palette**: A warm, nostalgic color scheme inspired by early 2D design.
+- **Fully Responsive**: Optimized for every screen size from mobile to ultra-wide desktop.
+
+---
+
+## 📂 Repository Structure
+- `/index.html`: The main portfolio landing page.
+- `/style.css`: Unified Halftone design system.
+- `/tetris/`: The published build files for the Tetris game.
+- `/projects/`: Detailed technical case studies for AdSense optimization and SEO.
+- `/old_source/`: Legacy source code and assets previously located at the root.
+
+---
+
+## 🛠️ Local Development
+To run this portfolio locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/xjustice/xjustice.github.io.git
+   ```
+2. Open `index.html` in any modern web browser or use a local server like `npx serve`.
+
+---
+
+© 2024 xjustice. Created with passion for technology and design.
