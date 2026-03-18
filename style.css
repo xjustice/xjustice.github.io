@@ -193,11 +193,88 @@ main {
     color: var(--accent-color);
 }
 
+/* Content Page Styling */
+.content-page {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 5%;
+    line-height: 1.8;
+}
+
+.content-page h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.content-page h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.content-page p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+}
+
+.contact-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+}
+
+.contact-box a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Further Info Section (Home) */
+.further-info {
+    margin-top: 8rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.further-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.further-info p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+}
+
+/* Footer Links */
+.footer-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
 footer {
     padding: 6rem 5% 4rem;
     text-align: center;
     color: rgba(255,255,255,0.4);
     font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 @media (max-width: 768px) {
