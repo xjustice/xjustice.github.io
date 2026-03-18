@@ -5,51 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xjustice | Innovator & Developer Portfolio</title>
     <meta name="description" content="Explore the innovative projects of xjustice, including modern web games, data visualization tools, and specialized utility apps.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts representing the Halftone Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- AdSense Meta Tags could go here -->
 </head>
 <body>
-    <div class="background-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-
-    <header>
-        <nav>
-            <div class="logo">xjustice</div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
+    <div class="theme-wrapper">
+        <header>
+            <div class="logo-container">
+                <span class="logo-badge">xjustice</span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" class="active-link">Home</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <a href="https://github.com/xjustice" target="_blank" class="github-link">
-                    <svg height="24" viewBox="0 0 16 16" width="24" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                </a>
-            </div>
-        </nav>
-    </header>
+                <a href="privacy.html">Privacy</a>
+                <a href="https://github.com/xjustice" target="_blank">Work</a>
+            </nav>
+        </header>
 
-    <main>
         <section class="hero">
-            <h1 class="gradient-text">Engineering <br>Creative Solutions</h1>
-            <p class="subtitle">Welcome to the portfolio of xjustice. I explore the intersection of technology and design through games, interactive maps, and specialized data tools.</p>
+            <h1>xjustice is Creative and Innovative</h1>
+            <p>Welcome to the portfolio of xjustice. I explore the intersection of technology and design through games, interactive maps, and specialized data tools.</p>
         </section>
 
         <section class="projects-grid">
             <!-- Project: Tetris -->
-            <div class="project-card" id="project-tetris">
+            <div class="project-card">
+                <div class="card-img-container">
+                    <img src="images/tetris_halftone.png" alt="Modern Tetris (Godot)">
+                    <div class="card-badge"><span>OCT</span><span>2024</span></div>
+                </div>
                 <div class="card-content">
-                    <div class="card-icon">🕹️</div>
                     <h2>Modern Tetris (Godot)</h2>
-                    <p>A high-fidelity recreation of the classic Tetris game, built using the Godot Engine 4. This version features smooth animations, responsive controls, and a minimalist space-themed UI. Experience classic gameplay optimized for modern web browsers through WebAssembly.</p>
-                    <div class="tags">
-                        <span>Godot 4</span>
-                        <span>WASM</span>
-                        <span>Game Dev</span>
-                    </div>
+                    <p>A high-fidelity recreation of the classic Tetris game, built using the Godot Engine 4. This version features smooth animations, responsive controls, and a minimalist space-themed UI.</p>
                     <div class="card-actions">
                         <a href="./tetris/" class="view-project">Play Game →</a>
                         <a href="./projects/tetris.html" class="read-more">Read Case Study</a>
@@ -58,16 +47,14 @@
             </div>
 
             <!-- Project: World Energy Map -->
-            <div class="project-card" id="project-energy">
+            <div class="project-card">
+                <div class="card-img-container">
+                    <img src="images/energy_halftone.png" alt="World Energy Map">
+                    <div class="card-badge"><span>OCT</span><span>2024</span></div>
+                </div>
                 <div class="card-content">
-                    <div class="card-icon">⚡</div>
                     <h2>World Energy Map</h2>
-                    <p>An interactive data visualization project tracking global energy consumption and production trends. Built to provide insights into renewable energy adoption and resource management worldwide, using modern web technologies to present complex data in an accessible format.</p>
-                    <div class="tags">
-                        <span>Data Viz</span>
-                        <span>HTML5</span>
-                        <span>Interactive</span>
-                    </div>
+                    <p>An interactive data visualization project tracking global energy consumption and production trends. Built to provide insights into renewable energy adoption and resource management worldwide.</p>
                     <div class="card-actions">
                         <a href="https://xjustice.github.io/world-energy-map/" target="_blank" class="view-project">View Insights →</a>
                         <a href="./projects/energy-map.html" class="read-more">Read Case Study</a>
@@ -76,16 +63,14 @@
             </div>
 
             <!-- Project: ISO Checklist XP -->
-            <div class="project-card" id="project-iso">
+            <div class="project-card">
+                <div class="card-img-container">
+                    <img src="images/iso_halftone.png" alt="ISO Checklist XP">
+                    <div class="card-badge"><span>OCT</span><span>2024</span></div>
+                </div>
                 <div class="card-content">
-                    <div class="card-icon">📋</div>
                     <h2>ISO Checklist XP</h2>
-                    <p>Compliance management redefined. This application provides a structured checklist for ISO 17020 requirements, wrapped in a nostalgic Windows XP user interface. It combines professional utility with an engaging retro aesthetic for auditors and managers.</p>
-                    <div class="tags">
-                        <span>Retro UI</span>
-                        <span>Organization</span>
-                        <span>Workflow</span>
-                    </div>
+                    <p>Compliance management redefined. This application provides a structured checklist for ISO 17020 requirements, wrapped in a nostalgic Windows XP user interface.</p>
                     <div class="card-actions">
                         <a href="https://xjustice.github.io/iso-checklist-xp/" target="_blank" class="view-project">Launch App →</a>
                         <a href="./projects/iso-checklist.html" class="read-more">Read Case Study</a>
@@ -94,19 +79,17 @@
             </div>
         </section>
 
-        <section class="further-info">
-            <h2>Why I Build</h2>
-            <p>Every project listed here starts with a simple question: "How can this be better?" Whether it's the precision of a game engine or the clarity of a data dashboard, I focus on delivering seamless experiences that solve problems or entertain with ease.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </div>
-        <p>© 2024 xjustice. This site is created for educational and professional demonstration purposes.</p>
-    </footer>
+        <footer>
+            <div class="footer-ribbon">
+                <p>Curious about how I build these? Check my latest repository updates on GitHub!</p>
+            </div>
+            <div class="footer-links">
+                <a href="about.html">About Me</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <p class="copyright">© 2024 xjustice. Portions based on the "Halftone Theme" aesthetic.</p>
+        </footer>
+    </div>
 </body>
 </html>
