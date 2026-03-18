@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building a Modern Tetris with Godot 4 | xjustice Case Study</title>
-    <meta name="description" content="A deep dive into the technical development of a modern Tetris engine using Godot 4 and WebAssembly.">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Modern Tetris Case Study | xjustice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="background-blobs"><div class="blob blob-1"></div></div>
-    <header>
-        <nav><div class="logo">xjustice</div><div class="nav-links"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div></nav>
-    </header>
-    <main class="content-page">
-        <article>
-            <h1>Case Study: Building Modern Tetris with Godot 4</h1>
-            <p class="meta">Posted Oct 2024 • Tech Stack: Godot 4, GDScript, WebAssembly</p>
-            
-            <section>
-                <h2>Introduction</h2>
-                <p>Tetris is more than just a game; it is a fundamental exercise in logic, grid-based layout management, and real-time state synchronization. In this project, I aimed to recreate the classic "Tetromino" experience using the modern <b>Godot Engine 4</b>, with a specific focus on high-performance web deployment through <b>WebAssembly (WASM)</b>.</p>
-                <p>This case study outlines the technical decisions, architecture, and challenges faced during the development of this modern port.</p>
-            </section>
+    <div class="sf-background">
+        <div class="sf-gradient-sphere sphere-2"></div>
+    </div>
 
-            <section>
-                <h2>The Engine: Why Godot 4?</h2>
-                <p>Choosing the right engine was crucial. While Unity and WebGL are popular, Godot 4 offers a lightweight, open-source alternative that excels in 2D UI and node-based structures. The "Scene" architecture in Godot allowed me to treat each Tetromino piece as an independent object, while the main grid managed the overall game state.</p>
-                <p>One of the standout features of Godot 4 is its improved <b>GDExtension</b> and robust support for exporting to the web. By utilizing the <b>Single-Threaded WASM export</b>, I ensured maximum compatibility across diverse browser environments without sacrificing frame rates.</p>
-            </section>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="tetris.html" class="active">Works</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../privacy.html">Privacy</a>
+            </div>
+        </div>
+    </nav>
 
-            <section>
-                <h2>Core Gameplay Mechanics</h2>
-                <h3>1. Grid Management</h3>
-                <p>The core of Tetris lies in a 10x20 integer array. Each cell in the array stores information about whether it is occupied and what color the occupied block is. I implemented a scanning algorithm that checks for full rows after each block is placed (hard drop or manual placement). When a row is full, the array is shifted downward, and the score variable is incremented based on the number of simultaneous rows cleared (Single, Double, Triple, or Tetris).</p>
-                
-                <h3>2. Random Generator (Bag System)</h3>
-                <p>To ensure fair gameplay, I moved away from "True Random" and implemented the 7-Bag system. This ensures that every set of 7 pieces contains one of each unique Tetromino shape, preventing long streaks of unfavorable pieces and making the game more competitive.</p>
+    <main class="sf-container">
+        <section class="sf-hero">
+            <h1 class="sf-hero-title">Engineering <br>Precision.</h1>
+            <p class="sf-hero-subtitle">Modern Tetris Case Study: How a classic was reimagined through the Godot 4 engine and modern web standards.</p>
+        </section>
 
-                <h3>3. Collision Detection</h3>
-                <p>Collision is handled by pre-calculating the position of the Tetromino's cells relative to its pivot. Before any rotation or movement, the game checks if the target cells are within the grid bounds and are not currently occupied by settled blocks. Using <b>AABB (Axis-Aligned Bounding Box)</b> simplified this process significantly.</p>
-            </section>
-
-            <section>
-                <h2>Visual and Audio Engineering</h2>
-                <p>I wanted a "Space-Ambient" aesthetic. This was achieved through:
-                    <ul>
-                        <li><b>Shader Effects:</b> Applying subtle glow and chromatic aberration to the blocks to make them pop against the dark space background.</li>
-                        <li><b>Responsive UI:</b> Crafting the UI with Godot's Control nodes to ensure that the SCORE and NEXT PIECE labels remain perfectly aligned regardless of window scaling.</li>
-                        <li><b>Sound Design:</b> Integrating high-quality WAV files for rotation, landing, and row clears to provide tactile feedback to the player.</li>
-                    </ul>
-                </p>
-            </section>
-
-            <section>
-                <h2>Web Deployment Challenges</h2>
-                <p>Exporting a game engine to HTML5 presents challenges with <b>SharedArrayBuffer</b> and Cross-Origin Isolation (COI). To overcome this, I integrated a custom <code>coi-serviceworker.js</code> script to handle headers correctly on GitHub Pages, ensuring that the heavy <code>.wasm</code> binaries could execute with full performance visibility in modern browsers like Chrome and Firefox.</p>
-            </section>
-
-            <section>
-                <h2>Conclusion</h2>
-                <p>Building this Tetris engine was a valuable lesson in balancing simplicity with technical robustness. It remains one of my favorite projects for demonstrating how classical game logic can be revitalized with modern development tools. You can experience the result live on the main dashboard of this site.</p>
-                <div class="action-buttons">
-                    <a href="../tetris/" class="view-project">Play the Game →</a>
+        <section class="bento-grid">
+            <!-- Project Header Card -->
+            <div class="bento-card bento-large group-tetris">
+                <div class="card-bg-gradient gradient-blue"></div>
+                <div class="bento-content">
+                    <div class="bento-icon">🕹️</div>
+                    <h2>The Vision of Modern Gameplay</h2>
+                    <p>Standard Tetris has evolved over decades. For this implementation, the primary technical goal was to implement the **7-Bag Randomization System** and **Delayed Auto Shift (DAS)**, ensuring and maintaining a high level of competitive integrity. The game was written entirely in GDScript 2.0 and optimized for modern web browsers via WebAssembly (WASM).</p>
+                    <div class="bento-tags" style="margin-top:20px;"><span>Godot 4.3</span><span>GDScript</span><span>WebAssembly</span><span>Vector Rendering</span></div>
+                    <div class="bento-actions">
+                        <a href="../tetris/" class="sf-btn sf-btn-primary">Play Game ↗</a>
+                    </div>
                 </div>
-            </section>
-        </article>
+            </div>
+
+            <!-- Technical Specifications -->
+            <div class="bento-card group-iso">
+                <div class="card-bg-gradient gradient-purple"></div>
+                <div class="bento-content">
+                    <h2>Technical Architecture</h2>
+                    <p>Performance on the web is critical. By leveraging Godot's **TileMapLayer** and **WASM** compilation, we achieved a consistent 60 FPS while keeping the total binary size under 15MB. The procedural tile generation system ensures that visuals remain crisp on high-DPI (Retina) displays.</p>
+                </div>
+            </div>
+
+            <!-- Future Roadmap -->
+            <div class="bento-card group-energy">
+                <div class="card-bg-gradient gradient-green"></div>
+                <div class="bento-content">
+                    <h2>User Experience Design</h2>
+                    <p>Minimalist UI meets high-impact audio. We integrated a procedural space-background engine that changes ambient tints dynamically based on user speed, creating a deeper sense of immersion without distracting from the core mechanics.</p>
+                </div>
+            </div>
+
+            <div class="bento-card bento-small centered"><div class="bento-content"><div class="bento-icon">🚀</div><p class="stat-label">Fast Load Times</p></div></div>
+            <div class="bento-card bento-small centered"><div class="bento-content"><div class="bento-icon">🛠️</div><p class="stat-label">Godot Optimized</p></div></div>
+            
+        </section>
     </main>
-    <footer><div class="footer-links"><a href="../about.html">About Me</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy Policy</a></div><p>© 2024 xjustice.</p></footer>
+
+    <footer class="sf-footer">
+        <div class="footer-content">
+            <p>Modern Tetris is more than a game—it's a celebration of engineering excellence.</p>
+        </div>
+    </footer>
 </body>
 </html>

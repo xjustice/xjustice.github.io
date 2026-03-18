@@ -2,27 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | xjustice Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+    <div class="sf-background">
+        <div class="sf-gradient-sphere sphere-1"></div>
+        <div class="sf-gradient-sphere sphere-2"></div>
     </div>
-    <header>
-        <nav><div class="logo">xjustice</div><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></nav>
-    </header>
-    <main class="content-page">
-        <h1>About the Developer</h1>
-        <p>Welcome! I'm xjustice, a developer dedicated to creating high-quality web experiences and interactive software. My passion lies in transforming complex data and gameplay mechanics into user-friendly interfaces.</p>
-        <h2>Technical Background</h2>
-        <p>I specialize in building modular applications using a variety of technologies. From low-level game development with the Godot Engine to high-level data visualization, I am constantly exploring new ways to use technology to solve problems and create entertainment.</p>
-        <h2>The Hub Project</h2>
-        <p>This portfolio hub was created to unify my various projects into one accessible location, helping visitors understand my work and technical journey. Every project featured, including the Modern Tetris recreation, represents a step toward building a more connected and efficient digital world.</p>
+
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="projects/tetris.html">Works</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="sf-container">
+        <section class="sf-hero">
+            <h1 class="sf-hero-title">Engineering <br>Innovations.</h1>
+            <p class="sf-hero-subtitle">Driven by curiosity and technical precision, I build software that bridges the gap between complex logic and human-centered design.</p>
+        </section>
+
+        <section class="bento-grid">
+            <!-- Narrative Card -->
+            <div class="bento-card bento-large">
+                <div class="bento-content">
+                    <h2>My Technical Journey</h2>
+                    <p>Started as a developer fascinated by the fundamental mechanics of systems. Over time, this curiosity shifted toward building modular, scalable software architecture. Whether it's the game engine physics of Godot or the intricate data pipelines for global visualizations, my goal is always the same: clarity through engineering.</p>
+                    <p>Specializing in full-stack web technologies and interactive engine design, I prioritize performance and accessibility. I believe that powerful tools should be intuitive, and complex data should tell a story that everyone can understand.</p>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="bento-card group-energy">
+                <div class="card-bg-gradient gradient-blue"></div>
+                <div class="bento-content">
+                    <h2>Core Tech Stack</h2>
+                    <div class="bento-tags">
+                        <span>Godot 4</span><span>GDScript</span><span>JavaScript</span><span>HTML5/CSS3</span>
+                        <span>WebAssembly</span><span>Python</span><span>Core ML</span><span>Data Viz</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="bento-card group-iso">
+                <div class="card-bg-gradient gradient-green"></div>
+                <div class="bento-content">
+                    <h2>Mission & Vision</h2>
+                    <p>To redefine how professional utilities are experienced, blending high-end aesthetics with industrial-grade reliability. I am constantly exploring the latest in Apple WebKit standards and modern software guidelines to deliver premium results.</p>
+                </div>
+            </div>
+
+            <!-- Personal Card -->
+            <div class="bento-card bento-small centered">
+                <div class="bento-content">
+                    <div class="bento-icon">💡</div>
+                    <p class="stat-label">Problem Solver</p>
+                </div>
+            </div>
+
+            <div class="bento-card bento-small centered">
+                <div class="bento-content">
+                    <div class="bento-icon">🛰️</div>
+                    <p class="stat-label">Global Perspective</p>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer><div class="footer-links"><a href="about.html">About Me</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></div><p>© 2024 xjustice.</p></footer>
+
+    <footer class="sf-footer">
+        <div class="footer-content">
+            <p>© 2024 xjustice. This site is optimized for performance and privacy.</p>
+        </div>
+    </footer>
 </body>
 </html>
