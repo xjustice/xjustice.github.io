@@ -193,6 +193,53 @@ main {
     color: var(--accent-color);
 }
 
+.read-more {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Article Styling */
+article section {
+    margin-bottom: 3rem;
+}
+
+.meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 3rem;
+    display: block;
+}
+
+article ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+article li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.action-buttons {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
 /* Content Page Styling */
 .content-page {
     max-width: 800px;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro UI: ISO 17020 Checklist Case Study | xjustice</title>
+    <meta name="description" content="A nostalgic Windows XP-themed compliance tool for auditing and ISO 17020 management.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="background-blobs"><div class="blob blob-3"></div></div>
+    <header>
+        <nav><div class="logo">xjustice</div><div class="nav-links"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div></nav>
+    </header>
+    <main class="content-page">
+        <article>
+            <h1>Case Study: Retro UI & Compliance Management</h1>
+            <p class="meta">Posted Oct 2024 • Tech Stack: CSS3, HTML5, JavaScript, Retro UI Design</p>
+            
+            <section>
+                <h2>Introduction</h2>
+                <p>Compliance tools are traditionally seen as dry, corporate, and visually sterile. <b>ISO Checklist XP</b> is an experiment in breaking that mold. I combined the rigorous requirements of <b>ISO 17020</b>, the international standard for the operation of various types of bodies performing inspection, with the iconic aesthetic of <b>Windows XP</b>.</p>
+                <p>This case study explains how I developed a professional-grade audit tool that is as nostalgic as it is functional.</p>
+            </section>
+
+            <section>
+                <h2>Design Concept: The Windows XP Aesthetic</h2>
+                <p>Retro-tech is a powerful emotional hook. By utilizing the classic <b>Luna theme</b>, I aimed to create an interface that feels familiar, lowering the cognitive barrier for new users navigating complex auditing tasks.</p>
+                <p>Achieving this required a deep dive into <b>pure CSS3</b> for:
+                    <ul>
+                        <li><b>Bevels and Gradients:</b> Mimicking the classic window headers and Taskbar buttons without using heavy image assets.</li>
+                        <li><b>Iconography:</b> Pixel-perfect recreation of early 2000s desktop icons, optimized for SVG rendering.</li>
+                        <li><b>Window Management:</b> Simulating a desktop-like experience within the browser, utilizing a <code>z-index</code> stack that allows for draggable and focusable checklist windows.</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section>
+                <h2>The ISO 17020 Framework</h2>
+                <h3>1. Systematic Auditing</h3>
+                <p>The application is pre-populated with 140+ specific check items derived from ISO 17020. I engineered a nested JSON data structure that categorizes these into *Management Requirements, Structural Requirements, and Resource Requirements*. This ensures auditors can follow a logical, section-by-section workflow.</p>
+                
+                <h3>2. Evidence Persistence</h3>
+                <p>Each checklist item supports status tracking (Pass/Fail/NA) and text-based evidence logging. To ensure reliability for professionals, I implemented <b>IndexedDB-based persistence</b>, meaning that user progress is saved locally after every interaction, even if the browser crashes or the tab is closed.</p>
+            </section>
+
+            <section>
+                <h2>Technical Challenges</h2>
+                <p>One of the hardest parts of this project was balancing the <b>Nostalgic UI</b> with <b>Modern Usability</b>. I had to ensure the app remained responsive on mobile while the "Taskbar" and "Start Menu" remained functional. I solved this by implementing a reactive layout engine that collapses sidebars into a mobile-friendly drawer while maintaining the XP color palette and button styles.</p>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>ISO Checklist XP proves that professional utility does not have to be boring. It shows how the intersection of design history and modern auditing needs can create a product that stands out in a crowded market of compliance software.</p>
+                <div class="action-buttons">
+                    <a href="https://xjustice.github.io/iso-checklist-xp/" class="view-project">Launch App →</a>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer><div class="footer-links"><a href="../about.html">About Me</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy Policy</a></div><p>© 2024 xjustice.</p></footer>
+</body>
+</html>

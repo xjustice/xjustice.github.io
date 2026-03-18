@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization: World Energy Map Case Study | xjustice</title>
+    <meta name="description" content="Analyzing global energy consumption through interactive data visualization and web technologies.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="background-blobs"><div class="blob blob-2"></div></div>
+    <header>
+        <nav><div class="logo">xjustice</div><div class="nav-links"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div></nav>
+    </header>
+    <main class="content-page">
+        <article>
+            <h1>Case Study: Visualizing Global Energy Consumption</h1>
+            <p class="meta">Posted Oct 2024 • Tech Stack: HTML5, CSS3, JavaScript, Leaflet/D3</p>
+            
+            <section>
+                <h2>Project Overview</h2>
+                <p>Energy is the lifeblood of modern society, but the disparity between consumption and sustainable production is often difficult to grasp. <b>The World Energy Map</b> was born from a desire to make complex global energy datasets intuitive and interactive for everyday users and researchers alike.</p>
+                <p>This project uses large-scale public datasets to visualize consumption trends, renewable energy shifts, and CO2 emissions across all continents.</p>
+            </section>
+
+            <section>
+                <h2>The Technical Foundation</h2>
+                <p>The biggest challenge in visualizing global data is the clean integration of geographic information with performance-heavy dataset overlays. I chose <b>JavaScript</b> to handle the dynamic rendering of SVG elements on top of a base map, ensuring a 60FPS experience even when scrubbing through chronological data layers.</p>
+                <p>The map uses a <b>Choropleth (color-shaded)</b> approach to indicate intensity levels. I developed a custom shader-like logic to interpolate colors based on normalized energy values, making it easy to identify regions of high consumption or rapid renewable growth at a glance.</p>
+            </section>
+
+            <section>
+                <h2>Data Engineering</h2>
+                <h3>1. Normalization and Cleaning</h3>
+                <p>Raw energy data is often messy, with varied units like Terawatt-hours (TWh) and Tons of Oil Equivalent (TOE). Every data point was normalized into a common unit to allow for accurate cross-regional comparisons. I engineered a front-end processing pipeline that cleans and caches this data in the browser's <code>localStorage</code> to reduce redundant server requests and improve load times.</p>
+                
+                <h3>2. Temporal Scrubbing</h3>
+                <p>Understanding energy is about understanding *change*. I implemented a time-slider that allows users to travel back as far as 1990. Managing the state of thousands of data points across a timeline was solved using a <b>binary search tree</b> for quick lookups and optimized DOM diffing to update the map colors without reloading the entire page.</p>
+            </section>
+
+            <section>
+                <h2>UI/UX Design</h2>
+                <p>To keep the data from becoming overwhelming:
+                    <ul>
+                        <li><b>Minimalist Legend:</b> A clear, dynamic legend that updates as the user filters by energy type (Solar, Coal, Nuclear).</li>
+                        <li><b>Interactive Tooltips:</b> Hovering over any nation provides a snapshot of its energy mix, enabling deeper dives without navigation.</li>
+                        <li><b>Global Search:</b> A fast search bar indexed by ISO country codes allows for quick jumping between regions of interest.</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>The World Energy Map is more than just a chart; it is a tool for better understanding our global footprint. By leveraging the power of modern web visualization, I've transformed stale spreadsheet data into a living, breathing map of human progress and environmental responsibility.</p>
+                <div class="action-buttons">
+                    <a href="https://xjustice.github.io/world-energy-map/" class="view-project">Demo the Map →</a>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer><div class="footer-links"><a href="../about.html">About Me</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy Policy</a></div><p>© 2024 xjustice.</p></footer>
+</body>
+</html>
