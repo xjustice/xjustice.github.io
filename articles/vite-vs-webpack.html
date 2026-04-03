@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Vite vs Webpack: The Developer Experience Revolution | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Vite vs Webpack: The Developer Experience Revolution</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">Why we migrated our pipeline from Webpack to Vite and cut build times by 80%.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>The Monolithic Bundler Problem</h2>
+<p>For years, Webpack was the undisputed king of JavaScript module bundling. However, as our React applications grew in size and complexity, the developer experience severely degraded. Hot Module Replacement (HMR) updates were taking upwards of 5 seconds, breaking developer flow.</p>
+
+<h3>Esbuild and Native ESM</h3>
+<p>The migration to Vite represented a paradigm shift. Instead of crawling and bundling the entire application before the dev server could start, Vite leverages native ES Modules (ESM) in the browser. It serves the source code directly, letting the browser take over the job of module resolution.</p>
+<p>Under the hood, Vite uses Esbuild (written in Go) to pre-bundle dependencies. Esbuild is orders of magnitude faster than JavaScript-based bundlers. The result was a drop in initial cold-start times from 24 seconds (Webpack) to 1.2 seconds (Vite).</p>
+
+<h3>Plugin Ecosystem and Rollup</h3>
+<p>While Vite's dev server is novel, its production build utilizes Rollup. This provided us with a highly mature, stable ecosystem of plugins for tree-shaking and chunk splitting. We heavily utilized Rollup's manualChunks API to isolate our heavy data visualization libraries (like D3 or Three.js) into separate vendor chunks, allowing the browser to cache them aggressively across user visits.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>

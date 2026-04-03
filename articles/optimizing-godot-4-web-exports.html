@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Optimizing Godot 4 Build Sizes for Web Exports | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Optimizing Godot 4 Build Sizes for Web Exports</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">A deep dive into reducing WASM payload sizes and optimizing textures for browser-based games.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>The Problem with WebAssembly Payloads</h2>
+<p>When porting a desktop game to the web using Godot 4, the initial WebAssembly (WASM) payload can easily exceed 20MB. For a web portal or an online portfolio, asking users to wait for a 20MB download is often a conversion killer. In this article, we explore the aggressive optimization techniques used to bring the payload size of Modern Tetris down to a manageable size.</p>
+
+<h3>Step 1: Stripping the Engine Modules</h3>
+<p>Godot's default export templates contain everything from 3D physics engines (Bullet) to AR/VR support. By compiling a custom export template using a tailored <code>custom.py</code> configuration file, we can strip out modules that a 2D puzzle game absolutely does not need.</p>
+<p>For example, disabling <code>module_3d_enabled=no</code>, <code>module_webrtc_enabled=no</code>, and <code>module_csg_enabled=no</code> immediately shaved off 40% of the binary size.</p>
+
+<h3>Step 2: Asset Compression Strategies</h3>
+<p>Textures are the next largest memory hog. While VRAM compression (S3TC, BPTC) is essential for desktop GPUs, VRAM-compressed formats often compress poorly over the wire compared to standard formats. By experimenting with WebP lossless compression and keeping power-of-two texture bounds strict, we achieved a balance between visual fidelity and download speed.</p>
+<p>Audio is equally problematic. All <code>.wav</code> files were converted to Vorbis (<code>.ogg</code>) at 96kbps. For short sound effects like block rotation or landing impacts, the audio quality loss is imperceptible on standard browser audio setups, but the file size reduction is massive.</p>
+
+<h2>Conclusion</h2>
+<p>Building high-performance interactive web experiences requires viewing the Godot engine not just as a game framework, but as a heavily customizable front-end rendering pipeline. By treating every megabyte as a precious resource, we can deliver native-like performance directly inside the browser.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mastering the CSS Grid Bento Layout | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Mastering the CSS Grid Bento Layout</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">Technical breakdown of the responsive grid framework powering our portfolio.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>The Rise of the Bento Aesthetic</h2>
+<p>The 'Bento Box' UI trend, popularized by Apple's marketing pages, organizes disparate pieces of information into a cohesive, highly scannable grid of rounded rectangles. Implementing this robustly across mobile, tablet, and ultra-wide displays requires deep knowledge of CSS Grid.</p>
+
+<h3>The Dynamic Grid-Template</h3>
+<p>Instead of relying on heavy CSS frameworks like Bootstrap or complex absolute positioning, our portfolio relies on a simple CSS Grid with mathematically derived fractional units (fr). The core container uses <code>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</code>. This immediately creates a fluid layout that snaps columns into place without a single media query.</p>
+
+<h3>Spanning and Asymmetry</h3>
+<p>The beauty of the bento grid lies in asymmetry. Certain key projects (like Modern Tetris) command more visual weight. By mapping specific cards with <code>grid-column: span 2; grid-row: span 2;</code>, we create large focal points. The challenge is ensuring these spans don't break the layout on strict mobile viewports (where the grid collapses to 1 column). We utilize an <code>@media (min-width: 768px)</code> query exclusively for these spanning classes, ensuring the DOM stacks naturally on phones.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>
