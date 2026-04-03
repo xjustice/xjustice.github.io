@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_script"]
+[ext_resource type="TileSet" path="res://TetroTileSet.tres" id="2_tileset"]
+[ext_resource type="Texture2D" path="res://space_bg.png" id="3_bg"]
+[ext_resource type="AudioStream" path="res://rotate_impact.wav" id="4_rotate"]
+[ext_resource type="AudioStream" path="res://clear_impact.wav" id="5_clear"]
+
+[sub_resource type="Environment" id="Environment_neon"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.5
+glow_blend_mode = 0
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("score_label", "next_piece_display", "pause_label", "restart_message", "confirm_popup")]
+script = ExtResource("1_script")
+score_label = NodePath("HUD/ScoreLabel")
+next_piece_display = NodePath("HUD/NextPieceLayer")
+pause_label = NodePath("HUD/PauseLabel")
+restart_message = NodePath("HUD/RestartMessage")
+confirm_popup = NodePath("HUD/ConfirmPopup")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 600.0
+offset_bottom = 800.0
+texture = ExtResource("3_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRectOverlay" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 800)
+offset_right = 600.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 0.4)
+
+[node name="GameContainer" type="Node2D" parent="."]
+position = Vector2(260, 370)
+
+[node name="BoardBorder" type="ReferenceRect" parent="GameContainer"]
+offset_left = -162.0
+offset_top = -322.0
+offset_right = 162.0
+offset_bottom = 322.0
+border_color = Color(1, 1, 1, 0.5)
+border_width = 2.0
+editor_only = false
+
+[node name="BoardLayer" type="TileMapLayer" parent="GameContainer"]
+position = Vector2(-160, -320)
+tile_set = ExtResource("2_tileset")
+
+[node name="GhostPieceLayer" type="TileMapLayer" parent="GameContainer"]
+position = Vector2(-160, -320)
+tile_set = ExtResource("2_tileset")
+
+[node name="ActivePieceLayer" type="TileMapLayer" parent="GameContainer"]
+position = Vector2(-160, -320)
+tile_set = ExtResource("2_tileset")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_left = 450.0
+offset_top = 50.0
+offset_right = 550.0
+offset_bottom = 73.0
+text = "SCORE: 0"
+
+[node name="NextActionLabel" type="Label" parent="HUD"]
+offset_left = 450.0
+offset_top = 100.0
+offset_right = 550.0
+offset_bottom = 123.0
+text = "NEXT:"
+
+[node name="NextPieceLayer" type="TileMapLayer" parent="HUD"]
+position = Vector2(430, 130)
+tile_set = ExtResource("2_tileset")
+scale = Vector2(0.8, 0.8)
+
+
+[node name="PauseLabel" type="Label" parent="HUD"]
+visible = false
+offset_left = 200.0
+offset_top = 350.0
+offset_right = 400.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 40
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="RestartMessage" type="Label" parent="HUD"]
+visible = false
+offset_left = 150.0
+offset_top = 420.0
+offset_right = 450.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "GAME RESTARTED!"
+horizontal_alignment = 1
+
+[node name="ConfirmPopup" type="Panel" parent="HUD"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.8)
+offset_left = 150.0
+offset_top = 250.0
+offset_right = 450.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ConfirmPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="HUD/ConfirmPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESTART?"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="HUD/ConfirmPopup/VBoxContainer"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="CancelBtn" type="Button" parent="HUD/ConfirmPopup/VBoxContainer"]
+layout_mode = 2
+text = "CANCEL"
+
+[node name="ExitBtn" type="Button" parent="HUD/ConfirmPopup/VBoxContainer"]
+layout_mode = 2
+text = "EXIT GAME"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_neon")
+
+[node name="ImpactParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0, 1, 1, 1)
+
+[node name="RotateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rotate")
+
+[node name="ClearSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_clear")

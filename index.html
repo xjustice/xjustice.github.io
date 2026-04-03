@@ -1,31 +1,130 @@
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neon Observatory | AI Research Dashboard & Premium Content hub</title>
-    <meta name="description" content="Explore advanced AI research metrics, trends, and insightful blog content powered by state-of-the-art neural analysis." />
-    <meta name="keywords" content="AI, Research, Neural Networks, Trend Analysis, Modern Dashboard, AdSense Approved" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3082517363943987" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location));
-    </script>
-    <script type="module" crossorigin src="/assets/index-DsW0ihSK.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-4-JW1-ZV.css">
-  </head>
-  <body class="bg-background text-on-surface">
-    <div id="root"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>xjustice | Innovator & Developer Portfolio</title>
+    <meta name="description" content="Explore the innovative projects of xjustice, including modern web games, data visualization tools, and specialized utility apps.">
+    <!-- Apple-style Typography (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sf-background">
+        <div class="sf-gradient-sphere sphere-1"></div>
+        <div class="sf-gradient-sphere sphere-2"></div>
+        <div class="sf-gradient-sphere sphere-3"></div>
+    </div>
+
+    <!-- Glassmorphic Navbar -->
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="articles.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="projects/tetris.html">Works</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <a href="https://github.com/xjustice" target="_blank" class="nav-icon">
+                <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+            </a>
+        </div>
+    </nav>
+
+    <main class="sf-container">
+        <!-- Hero Section -->
+        <section class="sf-hero">
+            <h1 class="sf-hero-title">Creative.<br>Engineering.</h1>
+            <p class="sf-hero-subtitle">Exploring the intersection of seamless technology, clean design, and interactive experiences. Engineered for performance.</p>
+        </section>
+
+        <!-- Bento Grid Layout -->
+        <section class="bento-grid">
+            
+            <!-- Large Main Card: Tetris -->
+            <div class="bento-card bento-large group-tetris">
+                <div class="card-bg-gradient gradient-blue"></div>
+                <div class="bento-content">
+                    <div class="bento-icon">🕹️</div>
+                    <h2>Modern Tetris</h2>
+                    <p>A high-fidelity recreation built using the Godot Engine 4. Smooth animations, responsive controls, and a minimalist web interface.</p>
+                    <div class="bento-tags">
+                        <span>Godot 4</span><span>WASM</span><span>Game Dev</span>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="./tetris/" class="sf-btn sf-btn-primary">Play Now</a>
+                        <a href="./projects/tetris.html" class="sf-btn sf-btn-secondary">Read Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Card: Energy Map -->
+            <div class="bento-card group-energy">
+                <div class="card-bg-gradient gradient-green"></div>
+                <div class="bento-content">
+                    <div class="bento-icon">🌍</div>
+                    <h2>World Energy Map</h2>
+                    <p>Interactive data visualization tracking global energy consumption and production trends.</p>
+                    <div class="bento-tags">
+                        <span>Interactive</span><span>Vue/React</span>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://xjustice.github.io/world-energy-map/" target="_blank" class="sf-link">View Map ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Card: ISO Checklist -->
+            <div class="bento-card group-iso">
+                <div class="card-bg-gradient gradient-purple"></div>
+                <div class="bento-content">
+                    <div class="bento-icon">📋</div>
+                    <h2>ISO Checklist XP</h2>
+                    <p>Compliance management simplified. A structured checklist for ISO 17020 requirements wrapped in a retro UI.</p>
+                    <div class="bento-tags">
+                        <span>Utility</span><span>Retro UI</span>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://xjustice.github.io/iso-checklist-xp/" target="_blank" class="sf-link">Launch App ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Info Card -->
+            <div class="bento-card bento-small group-about">
+                <div class="bento-content centered">
+                    <h3 class="stat-number">3</h3>
+                    <p class="stat-label">Featured Projects</p>
+                </div>
+            </div>
+
+            <!-- Small Info Card -->
+            <div class="bento-card bento-small group-contact">
+                <div class="bento-content centered">
+                    <div class="bento-icon">✉️</div>
+                    <a href="contact.html" class="sf-link block-link">Let's Talk</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="sf-footer">
+        <div class="footer-content">
+            <p>Designed with precision. Inspired by Apple HIG.</p>
+            <div class="footer-links">
+                <a href="articles.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <p class="copyright">© 2024 xjustice. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
 </html>
