@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HTML5 Audio API Gotchas for Browser Games | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">HTML5 Audio API Gotchas for Browser Games</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">Navigating browser autoplay policies, audio context suspension, and latency.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>The Autoplay Policy Nightmare</h2>
+<p>Deploying a game like Modern Tetris to the web introduces a unique set of challenges that desktop developers rarely face, chief among them being the strict Autoplay policies enforced by Chromium and WebKit browsers.</p>
+<p>To prevent malicious ads from blasting audio, browsers require a user interaction (a click or a tap) before any audio context is allowed to play. If your game engine initializes and attempts to play the background music immediately upon load, it will be silently blocked, often causing cascading errors in the audio buffer pipeline.</p>
+
+<h3>The Interaction Layer Solution</h3>
+<p>The standard pattern to solve this is the "Click to Start" overlay. However, simply binding an event listener to a button isn't enough. The <code>AudioContext.resume()</code> method must be called synchronously inside the specific user interaction event handler. If it is deferred via a Promise or a setTimeout, iOS Safari will still block it.</p>
+
+<h3>Dealing with Audio Latency</h3>
+<p>The second major hurdle is latency. When dropping a block in Tetris, the 'thud' sound must correspond exactly with the visual resting frame. HTML5 <code>&lt;audio&gt;</code> tags are notoriously unreliable for timing, often carrying 50ms to 100ms of unpredictable delay.</p>
+<p>For precise timing, we had to rely entirely on the Web Audio API, decoding audio files into memory as <code>AudioBuffer</code> objects and scheduling them with <code>audioContext.currentTime</code>. Pre-decoding is critical; attempting to decode the MP3 chunk on the fly at the moment of impact will inevitably cause a stutter in the game loop.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>

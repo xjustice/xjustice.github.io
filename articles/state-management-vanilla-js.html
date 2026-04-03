@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>State Management in Vanilla JavaScript | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">State Management in Vanilla JavaScript</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">Building a reactive store for the ISO Checklist without the overhead of Redux.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>Why Not Redux?</h2>
+<p>When building the ISO Checklist XP application, the primary requirement was persistent state tracking across 200+ checkboxes. The immediate instinct of a modern web developer is to reach for Redux Toolkit or Zustand. However, the overhead of React and an external state library for what is essentially a highly stylized form felt architecturally heavy.</p>
+
+<h3>The Proxy Pattern</h3>
+<p>We opted to build a custom reactive store utilizing JavaScript ES6 Proxies. A Proxy allows developers to intercept and redefine fundamental operations for an object, such as getting, setting, and defining properties.</p>
+<p>By wrapping our plain JavaScript state object in a Proxy, we created a custom <code>set()</code> trap. Every time a checkbox value changes, the trap intercepts the assignment, automatically writes the serialized state to <code>localStorage</code>, and triggers a pub-sub event to re-render the specific DOM nodes that display the overall completion percentage.</p>
+
+<h3>Zero Dependency Architecture</h3>
+<p>This zero-dependency approach resulted in a total JavaScript payload of under 8KB. It boots instantly, is completely impervious to dependency-chain vulnerabilities, and is trivial to debug. It serves as a stark reminder that modern Vanilla JS often has the tools we need built right into the spec.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>

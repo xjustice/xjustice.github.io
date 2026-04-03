@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Designing High-Fidelity UIs for Accessibility | xjustice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="sf-navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">xjustice</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../articles.html" class="active">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <main class="sf-container" style="padding-top: 100px; max-width: 800px;">
+        <article class="bento-card" style="padding: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Designing High-Fidelity UIs for Accessibility</h1>
+            <div style="color: #888; margin-bottom: 40px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 20px;">Ensuring Apple HIG-inspired interfaces don't sacrifice screen reader compatibility.</div>
+            <div class="article-body" style="color: #ccc; line-height: 1.8;">
+                
+<h2>The Hidden Cost of Glassmorphism</h2>
+<p>In modern UI design, particularly aesthetics heavily influenced by Apple's Human Interface Guidelines (HIG), 'Glassmorphism' encompasses blurred backgrounds, translucent layers, and subtle gradients. While visually stunning, it often creates severe accessibility (a11y) challenges.</p>
+
+<h3>Contrast Ratios and Blur Backgrounds</h3>
+<p>The primary issue with translucent layers is mathematical contrast. According to WCAG 2.1 AA standards, text must have a contrast ratio of at least 4.5:1 against its background. When the background is a blurred, dynamic gradient, ensuring this ratio holds true across all potential pixel permutations is extremely difficult.</p>
+<p>To solve this in our portfolio architecture, we implemented a dynamic CSS fallback. Using CSS custom properties and the <code>backdrop-filter</code> CSS feature query, we ensure that if a user has 'reduce transparency' enabled at the OS level, the translucent layer gracefully falls back to a solid, high-contrast dark color. <code>@media (prefers-reduced-transparency: reduce) { ... }</code> is a critical tool for modern front-end developers.</p>
+
+<h3>Semantic HTML in Complex Components</h3>
+<p>Bento grids and highly animated interactive elements often lead developers to build custom elements out of <code>&lt;div&gt;</code> tags. This strips away native keyboard navigation and screen reader semantics. We rigorously enforce the use of <code>role="button"</code>, <code>aria-expanded</code>, and proper <code>&lt;nav&gt;</code> structure even when the visual styling looks nothing like traditional web architecture.</p>
+
+            </div>
+        </article>
+    </main>
+    <style>
+        .article-body h2 { color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.8rem; }
+        .article-body h3 { color: #ddd; margin-top: 30px; margin-bottom: 10px; font-size: 1.4rem; }
+        .article-body p { margin-bottom: 20px; font-size: 1.1rem;}
+        .article-body code { background: #222; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #ff9d00;}
+    </style>
+</body>
+</html>
